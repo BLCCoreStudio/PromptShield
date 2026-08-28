@@ -4,16 +4,23 @@ fn findings(text: &str) -> Vec<&'static str> {
     let lower = text.to_ascii_lowercase();
     let mut out = Vec::new();
 
-    if lower.contains("ignore previous instructions") || lower.contains("ignore all previous instructions") {
+    if lower.contains("ignore previous instructions")
+        || lower.contains("ignore all previous instructions")
+    {
         out.push("PS001 instruction-override phrase detected");
     }
     if lower.contains("reveal your system prompt") || lower.contains("show your system prompt") {
         out.push("PS002 system-prompt extraction phrase detected");
     }
-    if lower.contains("send") && (lower.contains("api key") || lower.contains("private key") || lower.contains("token")) {
+    if lower.contains("send")
+        && (lower.contains("api key") || lower.contains("private key") || lower.contains("token"))
+    {
         out.push("PS003 possible secret-exfiltration instruction detected");
     }
-    if text.chars().any(|c| matches!(c, '\u{202A}'..='\u{202E}' | '\u{2066}'..='\u{2069}')) {
+    if text
+        .chars()
+        .any(|c| matches!(c, '\u{202A}'..='\u{202E}' | '\u{2066}'..='\u{2069}'))
+    {
         out.push("PS004 bidirectional-control character detected");
     }
 
