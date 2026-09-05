@@ -1,46 +1,28 @@
 # PromptShield
 
-**Focused prompt-risk scanning research for AI coding workflows.**
+> **Project status: sunset / discontinued.**
 
-> **Companion research status:** PromptShield's current deterministic prompt-risk rules have been integrated into [AgentGuard](https://github.com/BLCCoreStudio/AgentGuard). This repository remains public as a focused research/reference implementation; new integrated policy, prompt-risk, and sandbox work targets AgentGuard.
+PromptShield was a focused prompt-risk scanning experiment for AI coding workflows. Its deterministic rules were later integrated into AgentGuard, which has itself now been discontinued as BLCCoreStudio reduces overlapping experimental projects.
 
-PromptShield scans text files for explainable indicators that content may be trying to override an AI agent's instructions, solicit secrets, or trigger unsafe tool use.
+The repository remains public for historical reference and to preserve existing links and commit history, but **no further feature development or routine maintenance is planned**.
 
-## Current development preview
+## Historical scope
 
-```text
-promptshield scan <FILE>
-```
+PromptShield scanned text files for explainable indicators that content might be attempting to override an AI agent's instructions, solicit secrets, or trigger unsafe tool use. Findings were designed as human-review warnings rather than proof that content was malicious.
 
-The current rules look for a deliberately small set of high-signal phrases and invisible bidirectional-control characters. Findings are warnings for human review, not proof that content is malicious.
+The project focused on:
 
-## Why this repository still exists
+- local-only scanning;
+- deterministic rule IDs and explanations;
+- a small set of high-signal patterns;
+- detection of invisible bidirectional-control characters;
+- no execution of scanned content;
+- no upload of repository data;
+- explicit separation between suspicious text and confirmed exploitation.
 
-PromptShield is intentionally retained rather than deleted or republished. It preserves the narrow experiment and its development history, keeps existing links valid, and makes the prompt-risk rule set easy to inspect independently from AgentGuard's execution-policy and isolation layers.
+## Historical source
 
-For active integration work, use **AgentGuard**.
-
-## Goals
-
-- local-only scanning
-- rule IDs with explanations
-- low-noise defaults
-- no execution of scanned content
-- no upload of repository data
-- clear distinction between suspicious text and confirmed exploitation
-
-## Build
-
-Requires Rust 1.74 or newer.
-
-```bash
-cargo build
-cargo test
-```
-
-## Security
-
-See [SECURITY.md](SECURITY.md).
+Previous implementation details, tests, documentation, and development history remain available through the Git history.
 
 ## License
 
